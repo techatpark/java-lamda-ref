@@ -1,9 +1,8 @@
-package com.techatpark.javapractice;
+package com.techatpark.lambda;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
-import com.tngtech.archunit.core.importer.ImportOptions;
 import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.Test;
 
@@ -16,9 +15,10 @@ class MyArchitectureTest {
         JavaClasses importedClasses = new ClassFileImporter()
                 .withImportOption(new ImportOption.DoNotIncludeTests())
                 .withImportOption(new ImportOption.DoNotIncludeJars())
-                .importPackages("com.techatpark.javapractice");
+                .importPackages("com.techatpark.lambda");
         ArchRule rule = classes().should().onlyAccessClassesThat()
-                .resideInAnyPackage("java.lang","com.techatpark.javapractice");
+                .resideInAnyPackage("java.lang"
+                        ,"com.techatpark.lambda");
         rule.check(importedClasses);
     }
 }
