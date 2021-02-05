@@ -22,6 +22,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-lambda-java-events</artifactId>
+			<version>3.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-lambda-java-tests</artifactId>
 			<version>1.0.0</version>
 			<scope>test</scope>

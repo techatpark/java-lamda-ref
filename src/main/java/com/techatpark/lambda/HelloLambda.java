@@ -1,6 +1,7 @@
 package com.techatpark.lambda;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import com.techatpark.lambda.model.User;
 
 /**
  * Simple Lambda Function.

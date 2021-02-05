@@ -1,4 +1,4 @@
-package com.techatpark.lambda;
+package com.techatpark.lambda.model;
 
 import lombok.Getter;
 import lombok.Setter;
