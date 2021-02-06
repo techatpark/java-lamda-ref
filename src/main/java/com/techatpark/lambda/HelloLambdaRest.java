@@ -28,7 +28,7 @@ public class HelloLambdaRest implements
             final Map<String, Object> stringObjectMap, final Context context) {
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(HTTP_STATUS_OK)
-                .withBody("")
+                .withBody(":) MAHHSHSH JSJJSJ :)")
                 .withIsBase64Encoded(false);
     }
 }
