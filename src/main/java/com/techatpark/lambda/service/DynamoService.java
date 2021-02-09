@@ -16,11 +16,14 @@ import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
 
 public class DynamoService {
+
+    private DynamoService(){}
+
     public static void main(String[] args)
     {
 
         /* Read the name from command args */
-        String table_name = "MyTable";
+        String table_name = "MyTabl8333";
 
         System.out.format(
                 "Creating table \"%s\" with a simple primary key: \"Name\".\n",
@@ -31,20 +34,22 @@ public class DynamoService {
                         "Name", ScalarAttributeType.S))
                 .withKeySchema(new KeySchemaElement("Name", KeyType.HASH))
                 .withProvisionedThroughput(new ProvisionedThroughput(
-                        new Long(10), new Long(10)))
+                        10L, 10L))
                 .withTableName(table_name);
 
 
         AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials("root", "pass")))
-                .withRegion(Regions.US_EAST_1)
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000",Regions.US_EAST_1.getName()))
+                .withCredentials(
+                        new AWSStaticCredentialsProvider(
+                                new BasicAWSCredentials("fakeMyKeyId", "fakeSecretAccessKey")))
                 .build();
 
         try {
             CreateTableResult result = ddb.createTable(request);
             System.out.println(result.getTableDescription().getTableName());
         } catch (AmazonServiceException e) {
-            System.err.println(e.getErrorMessage());
+            e.printStackTrace();
             System.exit(1);
         }
         System.out.println("Done!");

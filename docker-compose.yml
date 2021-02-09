@@ -6,6 +6,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      AWS_ACCESS_KEY_ID: root
-      AWS_SECRET_ACCESS_KEY: pass
+      AWS_ACCESS_KEY_ID: "fakeMyKeyId"
+      AWS_SECRET_ACCESS_KEY: "fakeSecretAccessKey"
       AWS_REGION: us-east-1
