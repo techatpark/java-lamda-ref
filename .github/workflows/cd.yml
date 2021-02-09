@@ -22,7 +22,7 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package shade:shade --file pom.xml
-    - name: default deploy
+    - name: Deploy Lambda
       uses: appleboy/lambda-action@master
       with:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
