@@ -1,4 +1,4 @@
-package com.techatpark.lambda;
+package org.example.lambda;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -15,10 +15,14 @@ class MyArchitectureTest {
         JavaClasses importedClasses = new ClassFileImporter()
                 .withImportOption(new ImportOption.DoNotIncludeTests())
                 .withImportOption(new ImportOption.DoNotIncludeJars())
-                .importPackages("com.techatpark.lambda");
+                .importPackages("org.example.lambda");
         ArchRule rule = classes().should().onlyAccessClassesThat()
-                .resideInAnyPackage("java.lang"
-                        ,"com.techatpark.lambda");
+                .resideInAnyPackage("java.lang..",
+                        "java.io..",
+                        "java.util.."
+                        ,"org.example.lambda.."
+                                ,"com.amazonaws.."
+                ,"java.util.logging");
         rule.check(importedClasses);
     }
 }
